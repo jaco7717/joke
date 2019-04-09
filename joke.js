@@ -10,6 +10,7 @@ const fetch = require('node-fetch');
 
 
 
+
 mongoose.Promise = Promise;
 mongoose.connect('mongodb+srv://emillouvmand:UXRYzVDa1nR7kHzX@jacob-otbax.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 
@@ -44,7 +45,7 @@ app.get('/api/othersites', (request, response) => {
         .then(resultat => resultat.json())
         .then (resultat => response.send(resultat))
 
-})
+});
 
 // GET /api/otherjokes/:site
 
@@ -68,7 +69,7 @@ app.post('/api/jokes', (request, response) => {
         });
 
 
-        message.save()
+        message.save();
 
         response.status(200).send("Message sent")
 
