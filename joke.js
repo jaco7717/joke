@@ -14,12 +14,6 @@ mongoose.connect('mongodb+srv://emillouvmand:UXRYzVDa1nR7kHzX@jacob-otbax.mongod
 
 
 
-onload = async => ({
-
-    alleJokes
-    voresJokes()
-
-});
 
 
 
