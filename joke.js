@@ -12,6 +12,12 @@ const fetch = require('node-fetch');
 mongoose.Promise = Promise;
 mongoose.connect('mongodb+srv://emillouvmand:UXRYzVDa1nR7kHzX@jacob-otbax.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 
+onload = async => {
+    alleJokes();
+    voresJokes();
+};
+
+
 
 
 const messageSkema = new Schema({
