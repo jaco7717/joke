@@ -14,6 +14,14 @@ mongoose.Promise = Promise;
 mongoose.connect('mongodb+srv://emillouvmand:UXRYzVDa1nR7kHzX@jacob-otbax.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 
 
+onload = async () => {
+    const [template, response] =
+        await Promise.all([fetch('/jokes.hbs'), fetch('https://jokservice.herokuapp.com/api/jokes')]);
+    const templateText = await template.text();
+    const files = await response.json();
+    const compiledTemplate = handlebars.compile(templateText);
+    document.body.innerHTML = compiledTemplate({files});
+};
 
 
 
