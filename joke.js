@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 const fetch = require('node-fetch');
+const handlebars = express();
 
 
 
@@ -25,7 +26,7 @@ const messageSkema = new Schema({
 
 const messageModel = mongoose.model('message', messageSkema);
 
-//handlebars.use(express.static('public'));
+handlebars.use(express.static('public'));
 
 
 
