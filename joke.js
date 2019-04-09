@@ -87,4 +87,5 @@ app.put('/api/jokes/:id', (request, response) => {
 
 });
 
-app.listen(8080);
+let PORT = process.env.PORT || 8080;
+app.listen(PORT);
