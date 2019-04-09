@@ -5,5 +5,24 @@
     "express": "^4.16.4",
     "mongoose": "^5.5.0",
     "node-fetch": "^2.3.0"
-  }
+  },
+  "main": "joke.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaco7717/joke.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaco7717/joke/issues"
+  },
+  "homepage": "https://github.com/jaco7717/joke#readme",
+  "description": ""
 }
