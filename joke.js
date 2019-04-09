@@ -5,6 +5,7 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 const fetch = require('node-fetch');
+const handlebars = express();
 
 
 
@@ -12,10 +13,8 @@ const fetch = require('node-fetch');
 mongoose.Promise = Promise;
 mongoose.connect('mongodb+srv://emillouvmand:UXRYzVDa1nR7kHzX@jacob-otbax.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 
-onload = async => {
-    alleJokes();
-    voresJokes();
-};
+
+
 
 
 
