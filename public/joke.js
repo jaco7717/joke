@@ -103,5 +103,14 @@ app.put('/api/jokes/:id', (request, response) => {
 
 });
 
+handlebars.get('/public', function(request,response) {
+    fetch('https://jokservice.herokuapp.com/api/jokes').then(result => {response.json(result)})
+
+});
+
+handlebars.get('/', function (request, response) {
+    response.sendStatus(404);
+});
+
 let PORT = process.env.PORT || 8080;
 app.listen(PORT);
