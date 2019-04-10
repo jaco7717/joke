@@ -66,11 +66,9 @@ async function addJoke() {
     document.getElementById("jokesFraAndre").addEventListener("click", () => nySide())
 
 
-function nySide(){
+async function nySide(link){
     document.querySelector('#jokesFraAndreJokes').innerHTML = '';
 
-    let link = document.getElementsByTagName("dd").value;
-    console.log(link);
     jokesfromotherlinks(link);
 
 }

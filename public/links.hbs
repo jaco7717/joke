@@ -1,7 +1,7 @@
 <table>
     {{#each links}}
 
-        <dd>{{this.address}}</dd>
+        <span class="link" id="{{_id}}" onclick="nySide({{this.address}})"> {{this.address}}</span>
         <br>
     {{/each}}
 </table>

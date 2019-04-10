@@ -54,7 +54,7 @@ app.get('/api/othersites', (request, response) => {
 // GET /api/otherjokes/:site
 
 app.get('/api/otherjokes/:site', (request, response) => {
-    let jokeurl = 'http://' + request.params.site + '.herokuapp.com/api/jokes';
+    let jokeurl = request.params.site + '/api/jokes';
     fetch(jokeurl)
         .then(resultat => resultat.json())
         .then(resultat => response.send(resultat))
