@@ -59,7 +59,7 @@ async function addJoke() {
 
 
 function nySide(){
-    document.querySelector('#jokesFraAndre').innerHTML = '';
+    document.querySelector('#jokesFraAndreJokes').innerHTML = '';
 
     let link = document.querySelector('#jokesFraAndre').value;
     console.log('id: ' + link);
