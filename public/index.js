@@ -25,14 +25,18 @@ async function getJokes() {
 }
 
 async function getOtherJokes() {
-    const [template, userResponse] =
-        await Promise.all([fetch('/links.hbs'), fetch('https://krdo-joke-registry.herokuapp.com/api/services')]);
+    const [template, links] =
+        await Promise.all([fetch('/links.hbs'), getOtherSites()]);
     const templeteText = await template.text();
-    const links = await userResponse.json();
+    // const links = await userResponse.json();
     const compiledTemplate = Handlebars.compile(templeteText);
     document.querySelector('#jokesFraAndre').innerHTML = compiledTemplate({links});
 }
 
+async function getOtherSites() {
+    return fetch('https://krdo-joke-registry.herokuapp.com/api/services')
+        .then(response => response.json())
+}
 
 async function addJoke() {
     document.querySelector('#saveJoke').onclick = () => {
