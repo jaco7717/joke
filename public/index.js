@@ -54,6 +54,13 @@ async function addJoke() {
 }
 
 
+async function andreJokes(site) {
+app.get('/api/otherjokes/' + site, (request, response) => {
+    let jokeurl = 'http://' + request.params.site + '.herokuapp.com/api/jokes';
+    fetch(jokeurl)
+        .then(resultat => resultat.json())
+
+})};
 
 
 
