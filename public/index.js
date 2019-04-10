@@ -21,11 +21,11 @@ async function getJokes() {
 
 async function getOtherJokes() {
     const [template, userResponse] =
-        await Promise.all([fetch('/jokes.hbs'),fetch('https://jokservice.herokuapp.com/api/jokes')]);
+        await Promise.all([fetch('/links.hbs'),fetch('https://krdo-joke-registry.herokuapp.com/api/services')]);
     const templeteText = await  template.text();
-    const jokes = await userResponse.json();
+    const links = await userResponse.json();
     const compiledTemplate = Handlebars.compile(templeteText);
-    document.querySelector('#jokesFraAndre').innerHTML = compiledTemplate({jokes});
+    document.querySelector('#jokesFraAndre').innerHTML = compiledTemplate({links});
 }
 
 async function addJoke() {
