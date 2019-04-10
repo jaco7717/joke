@@ -1,4 +1,4 @@
-document.querySelector('#jokesFraAndre').addEventListener("change", () =>nySide());
+document.getElementById("jokesFraAndre").addEventListener("change", () =>nySide());
 
 addJoke();
 opdater();
@@ -61,8 +61,8 @@ async function addJoke() {
 function nySide(){
     document.querySelector('#jokesFraAndreJokes').innerHTML = '';
 
-    let link = document.querySelector('#jokesFraAndre').value;
-    console.log('id: ' + link);
+    let link = document.getElementById("jokesFraAndre").value;
+   console.log(link);
     jokesfromotherlinks(link);
 
 }
