@@ -2,10 +2,12 @@
 
 
 
+onload = async () => {
 
+    addJoke();
+    opdater();
 
-addJoke();
-opdater();
+};
 
 
 async function opdater() {

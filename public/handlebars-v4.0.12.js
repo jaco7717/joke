@@ -2998,7 +2998,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return false;
 	    }
 
-	    for (var i = 0; i < len; i++) {
+	    // noinspection Annotator
+          for (var i = 0; i < len; i++) {
 	      var opcode = this.opcodes[i],
 	          otherOpcode = other.opcodes[i];
 	      if (opcode.opcode !== otherOpcode.opcode || !argEquals(opcode.args, otherOpcode.args)) {
@@ -3009,7 +3010,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    // We know that length is the same between the two arrays because they are directly tied
 	    // to the opcode behavior above.
 	    len = this.children.length;
-	    for (var i = 0; i < len; i++) {
+	    // noinspection Annotator
+          for (var i = 0; i < len; i++) {
 	      if (!this.children[i].equals(other.children[i])) {
 	        return false;
 	      }
