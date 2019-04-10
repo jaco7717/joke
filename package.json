@@ -6,7 +6,7 @@
     "mongoose": "^5.5.0",
     "node-fetch": "^2.3.0"
   },
-  "main": "public/joke.js",
+  "main": "joke.js",
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
