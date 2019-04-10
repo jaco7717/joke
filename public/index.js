@@ -63,11 +63,11 @@ async function addJoke() {
 
 
 
-    document.getElementById("jokesFraAndre").addEventListener("click", () => nySide())
 
 
-async function nySide(link){
-    document.querySelector('#jokesFraAndreJokes').innerHTML = '';
+
+function nySide(link){
+    //document.querySelector('#jokesFraAndreJokes').innerHTML = '';
 console.log(link);
     jokesfromotherlinks(link);
 
