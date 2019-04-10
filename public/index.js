@@ -29,6 +29,8 @@ async function getOtherJokes() {
     document.querySelector('#jokesFraAndre').innerHTML = compiledTemplate({links});
 }
 
+
+
 async function addJoke() {
     document.querySelector('#saveJoke').onclick = () =>{
         const msg = {
@@ -62,6 +64,14 @@ app.get('/api/otherjokes/' + site, (request, response) => {
 
 })};
 
+document.getElementById("jokesFraAndre").addEventListener("click", async function(){
+    const [template, userResponse] = await Promise.all([fetch('/jokes.hbs'),fetch(this.address + '/api/jokes')]);
+    const templeteText = await  template.text();
+    const jokes = await userResponse.json();
+    const compiledTemplate = Handlebars.compile(templeteText);
+    document.querySelector('#jokesFraAndreJokes').innerHTML = compiledTemplate({jokes});
 
+    ;
+});
 
 
