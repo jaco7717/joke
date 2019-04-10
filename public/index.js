@@ -1,4 +1,4 @@
-
+document.getElementById("links").addEventListener("click", () => nySide());
 
 
 
@@ -61,7 +61,6 @@ async function addJoke() {
     };
 }
 
-document.getElementById("links").addEventListener("click", () => nySide());
 
 
 function nySide(){
