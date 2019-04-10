@@ -1,5 +1,6 @@
 addJoke();
 opdater();
+getOtherJokes();
 
 async function opdater() {
     document.querySelector('#jokes').innerHTML = '';
@@ -16,6 +17,15 @@ async function getJokes() {
     const jokes = await userResponse.json();
     const compiledTemplate = Handlebars.compile(templeteText);
     document.querySelector('#jokes').innerHTML = compiledTemplate({jokes});
+}
+
+async function getOtherJokes() {
+    const [template, userResponse] =
+        await Promise.all([fetch('/jokes.hbs'),fetch('https://jokservice.herokuapp.com/api/jokes')]);
+    const templeteText = await  template.text();
+    const jokes = await userResponse.json();
+    const compiledTemplate = Handlebars.compile(templeteText);
+    document.querySelector('#jokesFraAndre').innerHTML = compiledTemplate({jokes});
 }
 
 async function addJoke() {
