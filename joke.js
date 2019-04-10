@@ -55,7 +55,7 @@ app.get('/api/othersites', (request, response) => {
 
 app.get('/api/otherjokes/:site', (request, response) => {
     let id = request.params.site;
-    fetch('/api/othersites')
+    fetch('/api/othersites/')
         .then(sites => {
             console.log(sites);
             let site = sites.find(site => id === site._id);
