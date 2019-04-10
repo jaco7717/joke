@@ -13,6 +13,7 @@ const handlebars = express();
 mongoose.Promise = Promise;
 mongoose.connect('mongodb+srv://emillouvmand:UXRYzVDa1nR7kHzX@jacob-otbax.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 
+handlebars.use(express.static('index'));
 
  onload = async () => {
      const [template, response] =
