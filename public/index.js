@@ -56,14 +56,8 @@ async function addJoke() {
 }
 
 
-async function andreJokes(site) {
-app.get('/api/otherjokes/' + site, (request, response) => {
-    let jokeurl = 'http://' + request.params.site + '.herokuapp.com/api/jokes';
-    fetch(jokeurl)
-        .then(resultat => resultat.json())
 
-})};
-
+async function jokesfromotherlinks(link) {
 document.getElementById("jokesFraAndre").addEventListener("click", async function(){
     const [template, userResponse] = await Promise.all([fetch('/jokes.hbs'),fetch('/api/otherjokes/'+ this.address )]);
     console.log(this.address + '/api/jokes/');
@@ -72,5 +66,6 @@ document.getElementById("jokesFraAndre").addEventListener("click", async functio
     const compiledTemplate = Handlebars.compile(templeteText);
     document.querySelector('#jokesFraAndreJokes').innerHTML = compiledTemplate({jokes});
 });
+}
 
 
