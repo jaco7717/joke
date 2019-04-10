@@ -1,6 +1,6 @@
 
 
-    document.getElementById("jokesFraAndre").addEventListener("click", () => console.log("3"));
+    document.getElementById("jokesFraAndre").addEventListener("click", () => nySide());
 
 
 
