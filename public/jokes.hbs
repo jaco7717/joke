@@ -1,5 +1,7 @@
 <table>
     {{#each messages}}
-        <tr><td>{{this.setup + ' ' + this.punchline}}</td></tr>
+        <dt>{{this.setup}}</dt>
+        <dd>- {{this.punchline}}</dd>
+        <br>
     {{/each}}
 </table>
