@@ -65,7 +65,7 @@ app.get('/api/otherjokes/' + site, (request, response) => {
 })};
 
 document.getElementById("jokesFraAndre").addEventListener("click", async function(){
-    const [template, userResponse] = await Promise.all([fetch('/jokes.hbs'),fetch(this.address + '/api/jokes')]);
+    const [template, userResponse] = await Promise.all([fetch('/jokes.hbs'),fetch('/api/otherjokes/'+ this.address )]);
     console.log(this.address + '/api/jokes/');
     const templeteText = await  template.text();
     const jokes = await userResponse.json();
