@@ -63,17 +63,18 @@ async function addJoke() {
 }
 
 
-function nySide(link) {
+function nySide(id) {
     //document.querySelector('#jokesFraAndreJokes').innerHTML = '';
-    console.log(link);
-    jokesfromotherlinks(link);
+    console.log(id);
+
+    jokesfromotherlinks(id);
 
 }
 
 
-async function jokesfromotherlinks(link) {
+async function jokesfromotherlinks(id) {
 
-    const [template, userResponse] = await Promise.all([fetch('/jokes.hbs'), fetch('/api/otherjokes/' + link)]);
+    const [template, userResponse] = await Promise.all([fetch('/jokes.hbs'), fetch('/api/otherjokes/' + id)]);
 
     const templeteText = await template.text();
     const jokes = await userResponse.json();

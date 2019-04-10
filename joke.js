@@ -54,10 +54,21 @@ app.get('/api/othersites', (request, response) => {
 // GET /api/otherjokes/:site
 
 app.get('/api/otherjokes/:site', (request, response) => {
-    let jokeurl = request.params.site + '/api/jokes';
-    fetch(jokeurl)
-        .then(resultat => resultat.json())
-        .then(resultat => response.send(resultat))
+    let id = request.params.site;
+    fetch('/api/othersites')
+        .then(sites => {
+            let site = sites.find(site => id === site._id);
+            if(site) {
+                let jokeurl = site + '/api/jokes';
+                fetch(jokeurl)
+                    .then(resultat => resultat.json())
+                    .then(resultat => response.send(resultat))
+            } else {
+                response.sendStatus(404);
+            }
+        });
+
+
 });
 
 
