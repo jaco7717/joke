@@ -36,10 +36,12 @@ const messageSkema = new Schema({
 const messageModel = mongoose.model('message', messageSkema);
 
 // GET /api/jokes
+function send() {
 
+}
 app.get('/api/jokes', async(request, response) => {
     response.json(await messageModel.find().exec())
-    console.log("hej");
+
 });
 
 
