@@ -39,6 +39,7 @@ const messageModel = mongoose.model('message', messageSkema);
 
 app.get('/api/jokes', async(request, response) => {
     response.json(await messageModel.find().exec())
+    console.log("hej");
 });
 
 

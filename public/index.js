@@ -8,4 +8,3 @@ onload = async () => {
     const compiledTemplate = Handlebars.compile(templateText);
     document.body.innerHTML = compiledTemplate({messages});
 };
-
