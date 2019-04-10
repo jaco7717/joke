@@ -1,11 +1,12 @@
 addJoke();
 opdater();
-getOtherJokes();
+
 
 async function opdater() {
     document.querySelector('#jokes').innerHTML = '';
     for (let input of document.querySelectorAll('input')) input.value = '';
     getJokes();
+    getOtherJokes();
 
 
 }
