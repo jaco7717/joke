@@ -18,9 +18,9 @@ onload = async () => {
     const [template, response] =
         await Promise.all([fetch('/jokes.hbs'), fetch('https://jokservice.herokuapp.com/api/jokes')]);
     const templateText = await template.text();
-    const files = await response.json();
+    const messages = await response.json();
     const compiledTemplate = handlebars.compile(templateText);
-    document.body.innerHTML = compiledTemplate({files});
+    document.body.innerHTML = compiledTemplate({messages});
 };
 
 
