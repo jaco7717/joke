@@ -1,6 +1,6 @@
 
 
-    document.getElementById("jokesFraAndre").addEventListener("click", () => nySide());
+
 
 
 
@@ -60,6 +60,8 @@ async function addJoke() {
             .catch(fejl => console.log('Fejl: ' + fejl));
     };
 }
+
+document.getElementsByTagName("dd").addEventListener("click", () => nySide());
 
 
 function nySide(){
