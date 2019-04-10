@@ -71,8 +71,6 @@ document.getElementById("jokesFraAndre").addEventListener("click", async functio
     const jokes = await userResponse.json();
     const compiledTemplate = Handlebars.compile(templeteText);
     document.querySelector('#jokesFraAndreJokes').innerHTML = compiledTemplate({jokes});
-
-    ;
 });
 
 
