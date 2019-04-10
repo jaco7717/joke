@@ -1,7 +1,7 @@
-saveJoke();
-update();
+addJoke();
+opdater();
 
-async function update() {
+async function opdater() {
     document.querySelector('#jokes').innerHTML = '';
     for (let input of document.querySelectorAll('input')) input.value = '';
     getJokes();
@@ -18,7 +18,7 @@ async function getJokes() {
     document.querySelector('#jokes').innerHTML = compiledTemplate({jokes});
 }
 
-async function saveJoke() {
+async function addJoke() {
     document.querySelector('#saveJoke').onclick = () =>{
         const msg = {
             setup: document.querySelector('#setup').value,
@@ -34,13 +34,15 @@ async function saveJoke() {
                 if(response.status>=400)
                     throw new Error(response.status);
                 else
-                    update();
+                    opdater();
                 return response.json();
             })
             .then(resultat => console.log(`Resultat: %o`, resultat))
             .catch(fejl => console.log('Fejl: ' + fejl));
     };
 }
+
+
 
 
 
