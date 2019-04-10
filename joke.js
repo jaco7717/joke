@@ -62,7 +62,7 @@ app.get('/api/otherjokes/:site', (request, response) => {
             let site = sites.find(site => id === site._id);
             console.log(site);
             if(site) {
-                let jokeurl = site + '/api/jokes';
+                let jokeurl = site.address + '/api/jokes';
                 fetch(jokeurl)
                     .then(resultat => resultat.json())
                     .then(resultat => response.send(resultat))
