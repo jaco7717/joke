@@ -1,3 +1,5 @@
+document.querySelector('#jokesFraAndre').addEventListener("change", () =>nySide());
+
 addJoke();
 opdater();
 
@@ -56,16 +58,25 @@ async function addJoke() {
 }
 
 
+function nySide(){
+    document.querySelector('#jokesFraAndre').innerHTML = '';
+
+    let link = document.querySelector('#jokesFraAndre').value;
+    console.log('id: ' + link);
+    jokesfromotherlinks(link);
+
+}
+
 
 async function jokesfromotherlinks(link) {
-document.getElementById("jokesFraAndre").addEventListener("click", async function(){
-    const [template, userResponse] = await Promise.all([fetch('/jokes.hbs'),fetch('/api/otherjokes/'+ this.address )]);
-    console.log(this.address + '/api/jokes/');
+
+    const [template, userResponse] = await Promise.all([fetch('/jokes.hbs'),fetch('/api/otherjokes/'+ link )]);
+
     const templeteText = await  template.text();
     const jokes = await userResponse.json();
     const compiledTemplate = Handlebars.compile(templeteText);
     document.querySelector('#jokesFraAndreJokes').innerHTML = compiledTemplate({jokes});
-});
+
 }
 
 
