@@ -34,7 +34,7 @@ const messageSkema = new Schema({
 
 const messageModel = mongoose.model('message', messageSkema);
 
-handlebars.use(express.static('public'));
+// handlebars.use(express.static('public'));
 
 
 
