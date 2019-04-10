@@ -8,8 +8,6 @@ const fetch = require('node-fetch');
 const handlebars = express();
 
 
-
-
 mongoose.Promise = Promise;
 mongoose.connect('mongodb+srv://emillouvmand:UXRYzVDa1nR7kHzX@jacob-otbax.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 
@@ -17,7 +15,7 @@ handlebars.use(express.static('index'));
 
  onload = async () => {
      const [template, response] =
-         await Promise.all([fetch('/jokes.hbs'), fetch('/api/jokes')]);
+         await Promise.all([fetch('/jokes.hbs'), fetch('https://jokservice.herokuapp.com/api/jokes')]);
      const templateText = await template.text();
      const messages = await response.json();
      const compiledTemplate = Handlebars.compile(templateText);
@@ -36,9 +34,7 @@ const messageSkema = new Schema({
 const messageModel = mongoose.model('message', messageSkema);
 
 // GET /api/jokes
-function send() {
 
-}
 app.get('/api/jokes', async(request, response) => {
     response.json(await messageModel.find().exec())
 
