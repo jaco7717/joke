@@ -1,4 +1,4 @@
-
+saveJoke();
 update();
 
 async function update() {
@@ -17,6 +17,31 @@ async function getJokes() {
     const compiledTemplate = Handlebars.compile(templeteText);
     document.querySelector('#jokes').innerHTML = compiledTemplate({jokes});
 }
+
+async function saveJoke() {
+    document.querySelector('#saveJoke').onclick = () =>{
+        const msg = {
+            setup: document.querySelector('#setup').value,
+            punchline: document.querySelector('#punchline').value
+        };
+        fetch('/api/jokes',{
+            method: "POST",
+            body: JSON.stringify(msg),
+            headers: {'Content-Type':'application/json'}
+        })
+
+            .then(response => {
+                if(response.status>=400)
+                    throw new Error(response.status);
+                else
+                    update();
+                return response.json();
+            })
+            .then(resultat => console.log(`Resultat: %o`, resultat))
+            .catch(fejl => console.log('Fejl: ' + fejl));
+    };
+}
+
 
 
 
