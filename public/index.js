@@ -61,7 +61,7 @@ async function addJoke() {
     };
 }
 
-document.getElementsByTagName("dd").addEventListener("click", () => nySide());
+document.getElementById("links").addEventListener("click", () => nySide());
 
 
 function nySide(){
