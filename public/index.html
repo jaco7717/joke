@@ -3,11 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="../handlebars-v4.0.12.js"></script>
+    <script src="handlebars-v4.0.12.js"></script>
     <script src="index.js" defer></script>
 
 
 </head>
 <body>
+
+
+<div class="middle">
+    <div id="sidemenu" class="innermiddle">
+        <div class="jokeservice" style="border: 3px solid black; padding: 10px" >
+            {{#each jokeservice}}
+            {{#if this.address}}
+            <button style="padding: 3px" class="jokeservice" value="{{this._id}}">
+                {{this.name}}
+            </button>
+            <a href="{{this.address}}">Link</a>
+            <br>
+            {{/if}}
+            {{/each}}
+        </div><br>
+        
+    </div>
+    <div id="jokes" class="innermiddle">
+        Vælg jokes fra en anden kilde
+    </div>
+    <div id="ownjokes" class="innermiddle">
+        <h2>Vores Jokes</h2>
+        <div id="jokecreator" class="jokecreator">
+            <label for="setupinput">Setup: </label><input id="setupinput" type="text">
+            <label for="punchlineinput">Punchline: </label><input id="punchlineinput" type="text">
+            <button id="jokesubmit" type="button">Send Joke</button>
+            <span id="jokeerror"></span>
+        </div>
+        <div id="jokesownjokes" class="jokesownjokes">
+
+        </div>
+    </div>
+</div>
+
+<script rel="script" src="index.js"></script>
 </body>
 </html>

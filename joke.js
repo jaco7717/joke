@@ -5,25 +5,27 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 const fetch = require('node-fetch');
-const handlebars = express();
 
 
 mongoose.Promise = Promise;
 mongoose.connect('mongodb+srv://emillouvmand:UXRYzVDa1nR7kHzX@jacob-otbax.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
 
-handlebars.use(express.static('index'));
+app.use(express.json());
+app.use(express.static('index'));
 
- onload = async () => {
-     const [template, response] =
-         await Promise.all([fetch('/jokes.hbs'), fetch('https://jokservice.herokuapp.com/api/jokes')]);
-     const templateText = await template.text();
-     const messages = await response.json();
-     const compiledTemplate = Handlebars.compile(templateText);
-     document.body.innerHTML = compiledTemplate({messages});
- };
+onload = async () => {
+    const [template, response] =
+        await Promise.all([fetch('/jokes.hbs'), fetch('https://jokservice.herokuapp.com/api/jokes')]);
+    const templateText = await template.text();
+    const messages = await response.json();
+    const compiledTemplate = Handlebars.compile(templateText);
+    document.body.innerHTML = compiledTemplate({messages});
+};
 
 
-
+app.get('/', function (req, res) {
+    getOtherSites();
+});
 
 
 const messageSkema = new Schema({
@@ -35,11 +37,10 @@ const messageModel = mongoose.model('message', messageSkema);
 
 // GET /api/jokes
 
-app.get('/api/jokes', async(request, response) => {
+app.get('/api/jokes', async (request, response) => {
     response.json(await messageModel.find().exec())
 
 });
-
 
 
 // GET /api/othersites
@@ -49,7 +50,7 @@ let url = 'https://krdo-joke-registry.herokuapp.com/api/services';
 app.get('/api/othersites', (request, response) => {
     fetch(url)
         .then(resultat => resultat.json())
-        .then (resultat => response.send(resultat))
+        .then(resultat => response.send(resultat))
 
 });
 
@@ -59,7 +60,7 @@ app.get('/api/otherjokes/:site', (request, response) => {
     let jokeurl = 'http://' + request.params.site + '.herokuapp.com/api/jokes';
     fetch(jokeurl)
         .then(resultat => resultat.json())
-        .then (resultat => response.send(resultat))
+        .then(resultat => response.send(resultat))
 });
 
 
@@ -97,6 +98,31 @@ app.delete('/api/jokes/:id', (request, response) => {
 app.put('/api/jokes/:id', (request, response) => {
 
 });
+
+function getOtherSites() {
+    return fetch('https://krdo-joke-registry.herokuapp.com/api/services', {method: "GET"})
+        .then(result => {
+            if (result.status >= 400) throw new Error(result.status);
+            else return result.json();
+        })
+        .catch(error => {
+            throw new Error(error.message)
+        });
+}
+
+function getJokes() {
+    return Joke.find().exec();
+}
+
+function createJoke(jokeSetup, jokePunchline) {
+    if (jokeSetup !== undefined && jokePunchline !== undefined) {
+        const newJoke = new Joke({
+            setup: jokeSetup,
+            punchline: jokePunchline
+        });
+        return newJoke.save();
+    }
+}
 
 
 let PORT = process.env.PORT || 8080;
