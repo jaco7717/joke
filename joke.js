@@ -69,7 +69,7 @@ app.get('/api/otherjokes/:site', (request, response) => {
                 if (site.address[site.address.length -1] !== '/') {
                     site.address += '/';
                 }
-                let jokeurl = site.address + '/api/jokes';
+                let jokeurl = site.address + 'api/jokes';
                 fetch(jokeurl)
                     .then(resultat => resultat.json())
                     .then(resultat => response.send(resultat))
