@@ -8,7 +8,7 @@ const fetch = require('node-fetch');
 
 
 mongoose.Promise = Promise;
-mongoose.connect('mongodb+srv://emillouvmand:UXRYzVDa1nR7kHzX@jacob-otbax.mongodb.net/test?retryWrites=true', {useNewUrlParser: true});
+mongoose.connect('mongodb+srv://emillouvmand:UXRYzVDa1nR7kHzX@jacob-otbax.mongodb.net/messages?retryWrites=true', {useNewUrlParser: true});
 
 app.use(express.static('public'));
 
