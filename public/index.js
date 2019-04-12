@@ -44,6 +44,8 @@ async function addJoke() {
             setup: document.querySelector('#setup').value,
             punchline: document.querySelector('#punchline').value
         };
+
+
         fetch('/api/jokes', {
             method: "POST",
             body: JSON.stringify(msg),
@@ -65,7 +67,7 @@ async function addJoke() {
 
 function nySide(id) {
     //document.querySelector('#jokesFraAndreJokes').innerHTML = '';
-    console.log(id);
+
 
     jokesfromotherlinks(id);
 

@@ -30,7 +30,7 @@ const messageSkema = new Schema({
     punchline: String
 });
 
-const messageModel = mongoose.model('message', messageSkema);
+const messageModel = mongoose.model('brugere', messageSkema);
 
 // GET /api/jokes
 
@@ -55,6 +55,10 @@ app.get('/api/othersites', (request, response) => {
 
 app.get('/api/otherjokes/:site', (request, response) => {
     let id = request.params.site;
+
+
+
+
     fetch(url)
         .then(result => result.json())
         .then(sites => {
@@ -62,6 +66,9 @@ app.get('/api/otherjokes/:site', (request, response) => {
             let site = sites.find(site => id === site._id);
             console.log(site);
             if(site) {
+                if (site.address[site.address.length -1] !== '/') {
+                    site.address += '/';
+                }
                 let jokeurl = site.address + '/api/jokes';
                 fetch(jokeurl)
                     .then(resultat => resultat.json())
