@@ -30,7 +30,7 @@ const messageSkema = new Schema({
     punchline: String
 });
 
-const messageModel = mongoose.model('brugere', messageSkema);
+const messageModel = mongoose.model('messages', messageSkema);
 
 // GET /api/jokes
 
